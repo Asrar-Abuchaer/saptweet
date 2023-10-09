@@ -1,42 +1,65 @@
-import { Box, Spacer, IconButton, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  HStack,
+  Input,
+  Spacer,
+  IconButton,
+  InputGroup,
+  InputLeftElement,
+} from "@chakra-ui/react";
 import React from "react";
-import { SearchIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { GoSearch } from "react-icons/go";
+import { AiTwotoneHome } from "react-icons/ai";
 
 function Navbar() {
   return (
-    <Box width="100%" height="50px" bg="blue.500" p=".5em">
-      <HStack maxW="1200px" mx="auto" alignItems="center">
-        <IconButton
-          colorScheme="blue"
-          aria-label="Search database"
-          icon={<SearchIcon placeholder="search" />}
-        />
+    <Box bg={"lightgrey"} p={"1em 5em"}>
+      <Flex alignItems={"center"}>
+        <Box>
+          <HStack spacing={"5em"}>
+            <Box>
+              <Link to={"/"}>
+                <IconButton
+                  backgroundColor={"transparent"}
+                  fontSize={"1.5em"}
+                  size="md"
+                  icon={<AiTwotoneHome />}
+                  _hover={{ bgColor: "transparent" }}
+                />
+              </Link>
+            </Box>
+            <Box>
+              <InputGroup w={"70%"}>
+                <InputLeftElement>
+                  <GoSearch color="grey" />
+                </InputLeftElement>
+                <Input
+                  // type="text"
+                  // variant="outline"
+                  placeholder="Search Here"
+                  border="2px solid grey"
+                  _hover={{ border: "2px solid grey" }}
+                />
+              </InputGroup>
+            </Box>
+          </HStack>
+        </Box>
         <Spacer />
-        <Link to="user" style={{ padding: 5 }}>
-          user
-        </Link>
-        <Link to="register" style={{ padding: 5 }}>
-          register
-        </Link>
-
-        {/* <Link
-            borderRadius=".3em"
-            border="solid .1em white"
-            color="white"
-            mr="2em"
-          >
-            User
-          </Link>
-          <Link
-            borderRadius=".3em"
-            border="solid .1em white"
-            color="white"
-            mr="2em"
-          >
-            Register
-          </Link> */}
-      </HStack>
+        <Box>
+          <HStack>
+            <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
+              <Link to={"/user"}>
+                User
+              </Link>
+            </Box>
+            <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
+              <Link to={"/register"}>Register</Link>
+            </Box>
+          </HStack>
+        </Box>
+      </Flex>
     </Box>
   );
 }
