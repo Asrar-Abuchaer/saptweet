@@ -7,7 +7,7 @@ function Tweet() {
   return (
     <Box>
       <Navbar />
-      <Box p={{ base: "1em 5em", lg: "1em 25em" }}>
+      <Box p={"0 10em"} paddingTop={"5em"}>
         <Box>
           <Center>
             <Heading>SAP Tweet</Heading>

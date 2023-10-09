@@ -4,7 +4,7 @@ import { Box, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Navbar from "../../../pages/navbar";
 
-export const SinglePostPage = ({ match }) => {
+export default function SinglePostPage({ match }) {
   const { postId } = match.params;
 
   const post = useSelector((state) =>
@@ -20,18 +20,16 @@ export const SinglePostPage = ({ match }) => {
         <Text>Post not found!</Text>
       </Box>
     );
-  }
-
-  return (
-    <Box>
-      <Navbar />
+  } else
+    return (
       <Box>
-        <Text as="b">{post.title}</Text>
-        <Text>{post.content}</Text>
-        <Link to={`/editPost/${post.id}`} className="button">
-          Edit Post
-        </Link>
+        <Box>
+          <Text as="b">{post.title}</Text>
+          <Text>{post.content}</Text>
+          <Link to={`/editPost/${post.id}`} className="button">
+            Edit Post
+          </Link>
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+}

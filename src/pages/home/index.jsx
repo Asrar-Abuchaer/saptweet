@@ -5,7 +5,7 @@ function Home() {
   return (
     <Box>
       <Navbar />
-      <Box>
+      <Box paddingTop={"5em"}>
         <Center>
           <Text>This is main pages</Text>
         </Center>

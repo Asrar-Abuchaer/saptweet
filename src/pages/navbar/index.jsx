@@ -15,7 +15,13 @@ import { AiTwotoneHome } from "react-icons/ai";
 
 function Navbar() {
   return (
-    <Box bg={"lightgrey"} p={"1em 5em"}>
+    <Box
+      bg={"lightgrey"}
+      p={"1em 5em"}
+      w={"full"}
+      position={"fixed"}
+      zIndex={"2"}
+    >
       <Flex alignItems={"center"}>
         <Box>
           <HStack>
