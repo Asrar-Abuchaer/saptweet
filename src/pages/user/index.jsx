@@ -1,12 +1,16 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Box, Center } from "@chakra-ui/react";
 import Navbar from "../navbar";
 
 function User() {
   return (
-    <>
-      <Navbar/>
-      <Text>this is page user</Text>
-    </>
+    <Box>
+      <Navbar />
+      <Box p={"1em 5em"}>
+        <Center>
+          <Text>This is page user</Text>
+        </Center>
+      </Box>
+    </Box>
   );
 }
 

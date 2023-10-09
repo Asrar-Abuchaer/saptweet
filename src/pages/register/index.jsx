@@ -1,11 +1,15 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import Navbar from "../navbar";
 
 function Register() {
   return (
     <Box>
       <Navbar />
-      <Text>this is page register</Text>
+      <Box p={"1em 5em"}>
+        <Center>
+          <Text>This is page register</Text>
+        </Center>
+      </Box>
     </Box>
   );
 }
