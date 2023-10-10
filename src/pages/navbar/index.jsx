@@ -7,6 +7,7 @@ import {
   IconButton,
   InputGroup,
   InputLeftElement,
+  Button,
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -53,15 +54,33 @@ function Navbar() {
         <Spacer />
         <Box>
           <HStack>
-            <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
+            <Button
+              backgroundColor={"transparent"}
+              _hover={{ bgColor: "transparent" }}
+              p={".3em 1em"}
+              borderRadius={".3em"}
+              border={"2px solid grey"}
+            >
               <Link to={"/user"}>User</Link>
-            </Box>
-            <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
+            </Button>
+            <Button
+              backgroundColor={"transparent"}
+              _hover={{ bgColor: "transparent" }}
+              p={".3em 1em"}
+              borderRadius={".3em"}
+              border={"2px solid grey"}
+            >
               <Link to={"/register"}>Register</Link>
-            </Box>
-            <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
+            </Button>
+            <Button
+              backgroundColor={"transparent"}
+              _hover={{ bgColor: "transparent" }}
+              p={".3em 1em"}
+              borderRadius={".3em"}
+              border={"2px solid grey"}
+            >
               <Link to={"/saptweet"}>SAP Tweet</Link>
-            </Box>
+            </Button>
           </HStack>
         </Box>
       </Flex>
