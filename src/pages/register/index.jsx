@@ -1,4 +1,4 @@
-import { Box, Text, Input, Button } from "@chakra-ui/react";
+import { Box, Text, Input, Button, VStack } from "@chakra-ui/react";
 import Navbar from "../navbar";
 import React, { useState } from "react";
 
@@ -67,29 +67,34 @@ function Register() {
   return (
     <Box>
       <Navbar />
-      <Box>
-        <Box>
-          <Text>User Registration</Text>
-        </Box>
+      <Box p={"0 10em"} paddingTop={"5em"}>
+        <VStack align={"stretch"}>
+          <Box>
+            <Text as={"b"}>User Registration</Text>
+          </Box>
+          <Box>
+            {errorMessage()}
+            {successMessage()}
+          </Box>
+          <Box>
+            <VStack align={"stretch"}>
+              <Text>Name</Text>
+              <Input onChange={handleName} value={name} type="text" />
+              <Text>Email</Text>
+              <Input onChange={handleEmail} value={email} type="email" />
+              <Text>Password</Text>
+              <Input
+                onChange={handlePassword}
+                value={password}
+                type="password"
+              />
 
-        <Box>
-          {errorMessage()}
-          {successMessage()}
-        </Box>
-
-        <Box>
-          <Text>Name</Text>
-          <Input onChange={handleName} value={name} type="text" />
-
-          <Text>Email</Text>
-          <Input onChange={handleEmail} value={email} type="email" />
-          <Text>Password</Text>
-          <Input onChange={handlePassword} value={password} type="password" />
-
-          <Button onClick={handleSubmit} type="submit">
-            Submit
-          </Button>
-        </Box>
+              <Button onClick={handleSubmit} type="submit" w={"15%"}>
+                Submit
+              </Button>
+            </VStack>
+          </Box>
+        </VStack>
       </Box>
     </Box>
   );

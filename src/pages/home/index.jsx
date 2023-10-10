@@ -1,11 +1,15 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Center } from "@chakra-ui/react";
 import Navbar from "../navbar";
 
 function Home() {
   return (
     <Box>
       <Navbar />
-      <Text>ini halaman utama</Text>
+      <Box paddingTop={"5em"}>
+        <Center>
+          <Text>This is main pages</Text>
+        </Center>
+      </Box>
     </Box>
   );
 }

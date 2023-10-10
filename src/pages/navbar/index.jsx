@@ -15,10 +15,16 @@ import { AiTwotoneHome } from "react-icons/ai";
 
 function Navbar() {
   return (
-    <Box bg={"lightgrey"} p={"1em 5em"}>
+    <Box
+      bg={"lightgrey"}
+      p={"1em 5em"}
+      w={"full"}
+      position={"fixed"}
+      zIndex={"2"}
+    >
       <Flex alignItems={"center"}>
         <Box>
-          <HStack spacing={"5em"}>
+          <HStack>
             <Box>
               <Link to={"/"}>
                 <IconButton
@@ -31,13 +37,11 @@ function Navbar() {
               </Link>
             </Box>
             <Box>
-              <InputGroup w={"70%"}>
+              <InputGroup w={"100%"}>
                 <InputLeftElement>
                   <GoSearch color="grey" />
                 </InputLeftElement>
                 <Input
-                  // type="text"
-                  // variant="outline"
                   placeholder="Search Here"
                   border="2px solid grey"
                   _hover={{ border: "2px solid grey" }}
@@ -50,12 +54,13 @@ function Navbar() {
         <Box>
           <HStack>
             <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
-              <Link to={"/user"}>
-                User
-              </Link>
+              <Link to={"/user"}>User</Link>
             </Box>
             <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
               <Link to={"/register"}>Register</Link>
+            </Box>
+            <Box p={".3em 1em"} borderRadius={".3em"} border={"2px solid grey"}>
+              <Link to={"/saptweet"}>SAP Tweet</Link>
             </Box>
           </HStack>
         </Box>
