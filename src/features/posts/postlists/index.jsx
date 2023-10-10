@@ -26,10 +26,10 @@ export default function PostsList() {
         <Box alignSelf={"flex-end"}>
           <HStack>
             <Button size={"xs"}>
-              <Link to={`/posts/${post.id}`}>View Post</Link>
+              <Link to={`/posts/${post.id}`}>View Tweet</Link>
             </Button>
             <Button size={"xs"}>
-              <Link to={`/posts/${post.id}`}>Edit Post</Link>
+              <Link to={`/posts/${post.id}`}>Edit Tweet</Link>
             </Button>
           </HStack>
         </Box>
@@ -41,7 +41,7 @@ export default function PostsList() {
     <Box p={".5em"}>
       <VStack align={"stretch"}>
         <Box>
-          <Text>Posts</Text>
+          <Text>Tweets</Text>
         </Box>
         <Divider />
         <Box>
