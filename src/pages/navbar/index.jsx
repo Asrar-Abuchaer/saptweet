@@ -37,6 +37,15 @@ function Navbar() {
                 />
               </Link>
             </Box>
+            <Button
+              backgroundColor={"transparent"}
+              _hover={{ bgColor: "transparent" }}
+              p={".3em 1em"}
+              borderRadius={".3em"}
+              border={"2px solid grey"}
+            >
+              <Link to={"/login"}>LOGIN</Link>
+            </Button>
           </HStack>
         </Box>
         <Spacer />

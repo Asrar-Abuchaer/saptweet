@@ -12,6 +12,7 @@ import {
   Message,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import Navbar from "../navbar";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -71,66 +72,66 @@ function CobaRegister() {
   });
 
   return (
-    <Box p={"0 5em"}>
-      <form onSubmit={formik.handleSubmit}>
-        <FormLabel>Email </FormLabel>
-        <FormControl
-          isInvalid={formik.touched.email && formik.errors.email}
-          nb={5}
-        >
-          <InputGroup>
-            <Input
-              size="lg"
-              type="text"
-              name="email"
-              placeholder="Input Your Email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-            />
-          </InputGroup>
-          {formik.touched.password && formik.errors.password && (
-            <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-          )}
-        </FormControl>
-        <FormLabel>Password</FormLabel>
-        <FormControl
-          isInvalid={formik.touched.email && formik.errors.email}
-          nb={5}
-        >
-          <InputGroup>
-            <Input
-              size="lg"
-              type="password"
-              name="password"
-              placeholder="Input Your Password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-            />
-          </InputGroup>
-          {formik.touched.password && formik.errors.password && (
-            <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
-          )}
-        </FormControl>
-        <FormLabel>Username </FormLabel>
-        <FormControl
-          isInvalid={formik.touched.email && formik.errors.email}
-          nb={5}
-        >
-          <InputGroup>
-            <Input
-              size="lg"
-              type="text"
-              name="username"
-              placeholder="Input Your Username"
-              value={formik.values.username}
-              onChange={formik.handleChange}
-            />
-          </InputGroup>
-        </FormControl>
-        <Button type="submit" mt={"1em"}>
-          REGISTER
-        </Button>
-      </form>
+    <Box>
+      <Navbar />
+      <Box p={"5em"}>
+        <form onSubmit={formik.handleSubmit}>
+          <FormLabel>Email </FormLabel>
+          <FormControl isInvalid={formik.touched.email && formik.errors.email}>
+            <InputGroup>
+              <Input
+                size="lg"
+                type="text"
+                name="email"
+                placeholder="Input Your Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+              />
+            </InputGroup>
+            {formik.touched.password && formik.errors.password && (
+              <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormLabel>Password</FormLabel>
+          <FormControl
+            isInvalid={formik.touched.email && formik.errors.email}
+            nb={5}
+          >
+            <InputGroup>
+              <Input
+                size="lg"
+                type="password"
+                name="password"
+                placeholder="Input Your Password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+              />
+            </InputGroup>
+            {formik.touched.password && formik.errors.password && (
+              <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormLabel>Username </FormLabel>
+          <FormControl
+            isInvalid={formik.touched.email && formik.errors.email}
+            nb={5}
+          >
+            <InputGroup>
+              <Input
+                size="lg"
+                type="text"
+                name="username"
+                placeholder="Input Your Username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+              />
+            </InputGroup>
+          </FormControl>
+          <Button type="submit" mt={"1em"}>
+            REGISTER
+          </Button>
+        </form>
+      </Box>
     </Box>
   );
 }
