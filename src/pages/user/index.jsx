@@ -24,7 +24,7 @@ function User() {
         <VStack align={"end"}>
           <Box>
             <Text as="b" align={"end"}>
-              User Sok Asik
+              USER
             </Text>
           </Box>
           <Divider border={"1px solid gray"} />
@@ -39,11 +39,6 @@ function User() {
                   </Box>
                 );
               })}
-            {/* {data
-              .filter((item) => item["isLogin"] === false)
-              .map((filteredUser) => {
-                console.log(<Text>{filteredUser}</Text>);
-              })} */}
           </VStack>
         </VStack>
       </Box>
