@@ -83,7 +83,7 @@ function CobaRegister() {
               size="lg"
               type="text"
               name="email"
-              placeholder="Input Youre Fucking Email"
+              placeholder="Input Your Email"
               value={formik.values.email}
               onChange={formik.handleChange}
             />
@@ -102,7 +102,7 @@ function CobaRegister() {
               size="lg"
               type="password"
               name="password"
-              placeholder="Input Youre Fucking Username"
+              placeholder="Input Your Password"
               value={formik.values.password}
               onChange={formik.handleChange}
             />
@@ -111,7 +111,7 @@ function CobaRegister() {
             <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
           )}
         </FormControl>
-        <FormLabel>User Name </FormLabel>
+        <FormLabel>Username </FormLabel>
         <FormControl
           isInvalid={formik.touched.email && formik.errors.email}
           nb={5}
@@ -121,7 +121,7 @@ function CobaRegister() {
               size="lg"
               type="text"
               name="username"
-              placeholder="Input Youre Fucking Password"
+              placeholder="Input Your Username"
               value={formik.values.username}
               onChange={formik.handleChange}
             />

@@ -34,6 +34,13 @@
       "password": "bangsatbangsat",
       "username": "andri",
       "isLogin": "false"
+    },
+    {
+      "email": "sam@gmail.com",
+      "password": "saaassssss",
+      "username": "asu",
+      "isLogin": "false",
+      "id": 6
     }
   ]
 }
