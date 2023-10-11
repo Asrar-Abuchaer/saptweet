@@ -34,7 +34,7 @@ function User() {
                 return (
                   <Box>
                     <Text>
-                      {item.isLogin === "false" ? `@${item.username}` : ""}
+                      {item.isLogin === "false" ? `@${item.username}` : null}
                     </Text>
                   </Box>
                 );
