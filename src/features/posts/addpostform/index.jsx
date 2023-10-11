@@ -19,7 +19,6 @@ export default function AddPostForm() {
           content,
         })
       );
-
       setContent("");
     }
   };
