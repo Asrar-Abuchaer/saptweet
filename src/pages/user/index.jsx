@@ -1,4 +1,4 @@
-import { Text, Box, Center, VStack } from "@chakra-ui/react";
+import { Text, Box, Center, VStack, Divider } from "@chakra-ui/react";
 import Navbar from "../navbar";
 import axios from "axios";
 import React from "react";
@@ -9,7 +9,7 @@ function User() {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setData(response.data);
-      console.log(response);
+      console.log("Success");
     } catch (err) {
       console.log(err);
     }
@@ -17,31 +17,34 @@ function User() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
-    <Box>
-      <Navbar />
-      <Box p={"1em 10em"} pt={"5em"}>
-        <VStack align={"stretch"}>
+    <Box p={"1em"} border={"2px solid gray"} borderRadius={"1em"}>
+      <Box>
+        <VStack align={"end"}>
           <Box>
-            <VStack align={"stretch"}>
-              {data?.length > 0 &&
-                data.map((item) => {
-                  return (
-                    <Box>
-                      <Text>
-                        <Text as="b">Name:</Text> {item.name}
-                      </Text>
-                      <Text>
-                        <Text as="b">Email:</Text> {item.email}
-                      </Text>
-                      <Text>
-                        <Text as="b">Phone Number:</Text> {item.number}
-                      </Text>
-                    </Box>
-                  );
-                })}
-            </VStack>
+            <Text as="b" align={"end"}>
+              User Sok Asik
+            </Text>
           </Box>
+          <Divider border={"1px solid gray"} />
+          <VStack align={"end"}>
+            {data?.length > 0 &&
+              data.map((item) => {
+                return (
+                  <Box>
+                    <Text>
+                      {item.isLogin === "false" ? `@${item.username}` : ""}
+                    </Text>
+                  </Box>
+                );
+              })}
+            {/* {data
+              .filter((item) => item["isLogin"] === false)
+              .map((filteredUser) => {
+                console.log(<Text>{filteredUser}</Text>);
+              })} */}
+          </VStack>
         </VStack>
       </Box>
     </Box>

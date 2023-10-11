@@ -37,18 +37,6 @@ function Navbar() {
                 />
               </Link>
             </Box>
-            <Box>
-              <InputGroup w={"100%"}>
-                <InputLeftElement>
-                  <GoSearch color="grey" />
-                </InputLeftElement>
-                <Input
-                  placeholder="Search Here"
-                  border="2px solid grey"
-                  _hover={{ border: "2px solid grey" }}
-                />
-              </InputGroup>
-            </Box>
           </HStack>
         </Box>
         <Spacer />
@@ -61,18 +49,9 @@ function Navbar() {
               borderRadius={".3em"}
               border={"2px solid grey"}
             >
-              <Link to={"/user"}>User</Link>
+              <Link to={"/saptweet"}>SAP TWEET</Link>
             </Button>
-            <Button
-              backgroundColor={"transparent"}
-              _hover={{ bgColor: "transparent" }}
-              p={".3em 1em"}
-              borderRadius={".3em"}
-              border={"2px solid grey"}
-            >
-              <Link to={"/register"}>Register</Link>
-            </Button>
-            <Button
+            {/* <Button
               backgroundColor={"transparent"}
               _hover={{ bgColor: "transparent" }}
               p={".3em 1em"}
@@ -80,7 +59,7 @@ function Navbar() {
               border={"2px solid grey"}
             >
               <Link to={"/saptweet"}>SAP Tweet</Link>
-            </Button>
+            </Button> */}
           </HStack>
         </Box>
       </Flex>

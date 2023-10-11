@@ -1,15 +1,27 @@
 import { Box, Button, Input, Text, Textarea, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { postAdded } from "../postSlice";
-
+import axios from "axios";
+import { useEffect } from "react";
 export default function AddPostForm() {
-  const [title, setTitle] = useState("");
+  const [data, setData] = useState();
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/users");
+      setData(response.data);
+      console.log("Success");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const [content, setContent] = useState("");
-
+  const [user, setUser] = useState("@putuphillipsteven");
   const onContentChanged = (e) => setContent(e.target.value);
-
   const dispatch = useDispatch();
   const onSavePostClicked = () => {
     if (content) {
@@ -17,6 +29,7 @@ export default function AddPostForm() {
         postAdded({
           id: nanoid(),
           content,
+          user,
         })
       );
       setContent("");
