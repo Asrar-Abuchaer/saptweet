@@ -3,7 +3,7 @@ import Home from "./pages/home";
 import Register from "./pages/register";
 import User from "./pages/user";
 import Tweet from "./pages/tweet";
-import { Login } from "./pages/login";
+import Login from "./pages/login";
 import CobaRegister from "./pages/cobaregister";
 
 function App() {

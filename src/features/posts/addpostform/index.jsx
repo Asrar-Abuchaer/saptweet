@@ -6,7 +6,6 @@ import { postAdded } from "../postSlice";
 
 export default function AddPostForm() {
   const [content, setContent] = useState("");
-  const [user, setUser] = useState("@putuphillipsteven");
   const onContentChanged = (e) => setContent(e.target.value);
   const dispatch = useDispatch();
   const onSavePostClicked = () => {
@@ -15,7 +14,6 @@ export default function AddPostForm() {
         postAdded({
           id: nanoid(),
           content,
-          user,
         })
       );
       setContent("");
@@ -39,7 +37,11 @@ export default function AddPostForm() {
                 />
               </Box>
               <Box>
-                <Button type="button" onClick={onSavePostClicked}>
+                <Button
+                  type="button"
+                  onClick={onSavePostClicked}
+                  bgColor={"lightgray"}
+                >
                   Tweet
                 </Button>
               </Box>

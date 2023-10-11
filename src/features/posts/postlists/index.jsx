@@ -14,7 +14,7 @@ export default function PostsList() {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setData(response.data);
-      console.log("Success");
+      console.log("--Fetch PostList Success--");
     } catch (err) {
       console.log(err);
     }
@@ -22,6 +22,7 @@ export default function PostsList() {
   useEffect(() => {
     fetchData();
   }, []);
+
   const renderedPosts = posts.map((post) => (
     <Box
       key={post.id}
@@ -32,16 +33,15 @@ export default function PostsList() {
       <VStack align={"stretch"}>
         <Box>
           <Text as={"b"}>
-            {data?.length > 0 &&
-              data.map((item) => {
-                return (
-                  <Box>
-                    <Text>
-                      {item.isLogin === "true" ? `@${item.username}` : ""}
-                    </Text>
-                  </Box>
-                );
-              })}
+            {data.map((item) => {
+              return (
+                <Box>
+                  <Text>
+                    {item.isLogin === "true" ? `@${item.username}` : ""}
+                  </Text>
+                </Box>
+              );
+            })}
           </Text>
         </Box>
         <Box>
@@ -52,10 +52,10 @@ export default function PostsList() {
         </Box>
         <Box alignSelf={"flex-end"}>
           <HStack>
-            <Button size={"xs"}>
+            <Button size={"xs"} bgColor={"lightgray"}>
               <Link to={`/posts/${post.id}`}>View Tweet</Link>
             </Button>
-            <Button size={"xs"}>
+            <Button size={"xs"} bgColor={"lightgray"}>
               <Link to={`/posts/${post.id}`}>Edit Tweet</Link>
             </Button>
           </HStack>

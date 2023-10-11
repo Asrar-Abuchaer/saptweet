@@ -8,11 +8,11 @@
       "isLogin": "false"
     },
     {
-      "id": 2,
       "email": "putu.phillip@gmail.com",
       "password": "bangsatbangsat",
       "username": "putu",
-      "isLogin": "true"
+      "isLogin": "false",
+      "id": 2
     },
     {
       "id": 3,
@@ -41,6 +41,13 @@
       "username": "asu",
       "isLogin": "false",
       "id": 6
+    },
+    {
+      "email": "kinurbangsat@gmail.com",
+      "password": "bangsatbangsat",
+      "username": "kinurbgst",
+      "isLogin": "false",
+      "id": 7
     }
   ]
 }

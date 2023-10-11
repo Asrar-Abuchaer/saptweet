@@ -1,11 +1,27 @@
-import { Heading, Box, Center, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Divider, Flex, Spacer, Text } from "@chakra-ui/react";
 import Navbar from "../navbar";
 import PostsList from "../../features/posts/postlists";
 import AddPostForm from "../../features/posts/addpostform";
-import { useSelector } from "react-redux";
 import User from "../user";
 import SideBar from "../sidebar";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
 function Tweet() {
+  const [tweets, setTweets] = useState([]);
+  const fetchDataLogin = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/tweets");
+      setTweets(response.data);
+      console.log(`--Fetch Tweet Success--`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchDataLogin();
+  }, []);
+
   return (
     <Box>
       <Navbar />
@@ -27,6 +43,22 @@ function Tweet() {
             </Box>
             <Box>
               <PostsList />
+              {tweets.map((item, index) => {
+                return (
+                  <Box
+                    key={index}
+                    p={".5em"}
+                    bgColor={"lightgray"}
+                    marginBottom={".5em"}
+                    borderRadius={".5em"}
+                  >
+                    <Text as={"b"}>@{item.username}</Text>
+                    <Divider border={"1px solid gray"} />
+                    <Text>{item.tweet}</Text>
+                    <Text fontSize={".75em"}>{item.time}</Text>
+                  </Box>
+                );
+              })}
             </Box>
           </Box>
           <Spacer />

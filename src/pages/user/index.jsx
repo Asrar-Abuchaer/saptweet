@@ -9,7 +9,7 @@ function User() {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setData(response.data);
-      console.log("Success");
+      console.log("--Fetch User Success--");
     } catch (err) {
       console.log(err);
     }
@@ -30,13 +30,11 @@ function User() {
           <Divider border={"1px solid gray"} />
           <VStack align={"end"}>
             {data?.length > 0 &&
-              data.map((item) => {
+              data.map((item, index) => {
                 return (
-                  <Box>
-                    <Text>
-                      {item.isLogin === "false" ? `@${item.username}` : null}
-                    </Text>
-                  </Box>
+                  <Text key={index}>
+                    {item.isLogin === "false" ? `@${item.username}` : ``}
+                  </Text>
                 );
               })}
           </VStack>

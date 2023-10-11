@@ -1,10 +1,22 @@
 {
-  "tweet": [
+  "tweets": [
     {
-      "tweet": "TEST ONE",
-      "time": "undefined",
-      "username": "Sam Williams",
+      "username": "putu",
+      "tweet": "Pagi ini saya makan overnight oats",
+      "time": "10/11/2023",
       "id": 1
+    },
+    {
+      "username": "sam",
+      "tweet": "Siang saya makan ayam full",
+      "time": "10/11/2023",
+      "id": 2
+    },
+    {
+      "username": "asrar",
+      "tweet": "Siang saya makan ayam full",
+      "time": "10/11/2023",
+      "id": 3
     }
   ]
 }
