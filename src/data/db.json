@@ -2,42 +2,37 @@
   "users": [
     {
       "id": 1,
-      "name": "Samuel Williams",
       "email": "samuelwilliams@gmail.com",
+      "password": "bangsatbangsat",
       "username": "samuel",
-      "number": "085811081182",
       "isLogin": "false"
     },
     {
       "id": 2,
-      "name": "I Putu Phillip Steven",
       "email": "putu.phillip@gmail.com",
+      "password": "bangsatbangsat",
       "username": "putu",
-      "number": "081213465888",
       "isLogin": "true"
     },
     {
       "id": 3,
-      "name": "Asrar Abuchaer",
       "email": "asrarabuchaer@gmail.com",
+      "password": "bangsatbangsat",
       "username": "asrar",
-      "number": "085341807134",
       "isLogin": "false"
     },
     {
       "id": 4,
-      "name": "Tengku Charu Abda",
       "email": "tengku@gmail.com",
+      "password": "bangsatbangsat",
       "username": "abda",
-      "number": "085341807134",
       "isLogin": "false"
     },
     {
       "id": 5,
-      "name": "Andri Anggoro",
       "email": "andri@gmail.com",
+      "password": "bangsatbangsat",
       "username": "andri",
-      "number": "085341807134",
       "isLogin": "false"
     }
   ]
