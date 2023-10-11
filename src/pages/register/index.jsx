@@ -79,7 +79,12 @@ function Register() {
           <Box>
             <VStack align={"stretch"}>
               <Text>Name</Text>
-              <Input onChange={handleName} value={name} type="text" />
+              <Input
+                size={"lg"}
+                onChange={handleName}
+                value={name}
+                type="text"
+              />
               <Text>Email</Text>
               <Input onChange={handleEmail} value={email} type="email" />
               <Text>Password</Text>
