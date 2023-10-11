@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Samuel Williams",
+      "email": "samuelwilliams@gmail.com",
+      "number": "085811081182",
+      "isLogin": "true"
+    },
+    {
+      "id": 2,
+      "name": "I Putu Phillip Steven",
+      "email": "putu.phillip@gmail.com",
+      "number": "081213465888",
+      "isLogin": "false"
+    },
+    {
+      "id": 3,
+      "name": "Asrar Abuchaer",
+      "email": "asrarabuchaer@gmail.com",
+      "number": "085341807134",
+      "isLogin": "false"
+    }
+  ]
+}
