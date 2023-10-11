@@ -48,6 +48,13 @@
       "username": "kinurbgst",
       "isLogin": "false",
       "id": 7
+    },
+    {
+      "email": "coba@gmail.com",
+      "password": "bangsatbangsat",
+      "username": "coba",
+      "isLogin": "false",
+      "id": 8
     }
   ]
 }

@@ -23,7 +23,7 @@ export default function AddPostForm() {
     <Box p={".5em"}>
       <VStack align={"stretch"}>
         <Box>
-          <Text>Tweet your speech</Text>
+          <Text as={"b"}>Tweet your speech</Text>
         </Box>
         <Box>
           <form>

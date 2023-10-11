@@ -1,4 +1,12 @@
-import { Box, Divider, Flex, Spacer, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Flex,
+  Spacer,
+  Text,
+  Link,
+  Button,
+} from "@chakra-ui/react";
 import Navbar from "../navbar";
 import PostsList from "../../features/posts/postlists";
 import AddPostForm from "../../features/posts/addpostform";
@@ -56,6 +64,12 @@ function Tweet() {
                     <Divider border={"1px solid gray"} />
                     <Text>{item.tweet}</Text>
                     <Text fontSize={".75em"}>{item.time}</Text>
+                    <Button size={"xs"} bgColor={"lightgray"}>
+                      <Link>View Tweet</Link>
+                    </Button>
+                    <Button size={"xs"} bgColor={"lightgray"}>
+                      <Link>Edit Tweet</Link>
+                    </Button>
                   </Box>
                 );
               })}
