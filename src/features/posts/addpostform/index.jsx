@@ -3,22 +3,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { postAdded } from "../postSlice";
-import axios from "axios";
-import { useEffect } from "react";
+
 export default function AddPostForm() {
-  const [data, setData] = useState();
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/users");
-      setData(response.data);
-      console.log("Success");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
   const [content, setContent] = useState("");
   const [user, setUser] = useState("@putuphillipsteven");
   const onContentChanged = (e) => setContent(e.target.value);
