@@ -58,27 +58,13 @@ function Login() {
       });
   };
 
-  const logOut = (index) => {
-    axios
-      .patch(`http://localhost:3000/users/${index}`, {
-        isLogin: "false",
-      })
-      .then((resp) => {
-        console.log(resp.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const updateLogOut = async () => {
-    await logOut(indexUser);
-    alert("Logout Success");
-  };
   const check = (email, password) => {
     if (allEmail.includes(email)) {
       newEmail = accounts[allEmail.indexOf(email)];
       indexUser = allEmail.indexOf(email) + 1;
       updateIsLogin(indexUser);
+      console.log(newEmail);
+      console.log(indexUser);
       if (newEmail.password.includes(password)) {
         navigate("/saptweet");
       } else {
@@ -87,6 +73,25 @@ function Login() {
     } else {
       alert("Email Belum Terdaftar");
     }
+  };
+
+  const updateIsLogout = (index) => {
+    axios
+      .patch(`http://localhost:3000/users/${index}`, {
+        isLogin: "true",
+      })
+      .then((resp) => {
+        console.log(resp.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const logout = (index) => {
+    console.log(newEmail);
+    console.log(indexUser);
+    updateIsLogout(index);
   };
 
   const formik = useFormik({
@@ -157,7 +162,11 @@ function Login() {
                   <Link to="/register">Register</Link>
                 </Text>
               </Text>
-              <Button w={"15%"} bgColor={"lightgray"} onClick={updateLogOut}>
+              <Button
+                w={"15%"}
+                bgColor={"lightgray"}
+                onClick={updateLogOut(indexUser)}
+              >
                 Log Out
               </Button>
             </VStack>

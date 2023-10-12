@@ -29,6 +29,18 @@
       "tweet": "Test login",
       "time": "10/12/2023",
       "id": 5
+    },
+    {
+      "username": "asrar",
+      "tweet": "What a beautiful day ",
+      "time": "10/12/2023",
+      "id": 6
+    },
+    {
+      "username": "samuel",
+      "tweet": "hari yang cerah",
+      "time": "10/12/2023",
+      "id": 7
     }
   ]
 }
