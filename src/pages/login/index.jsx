@@ -78,7 +78,7 @@ function Login() {
   const updateIsLogout = (index) => {
     axios
       .patch(`http://localhost:3000/users/${index}`, {
-        isLogin: "true",
+        isLogin: "false",
       })
       .then((resp) => {
         console.log(resp.data);
@@ -165,7 +165,7 @@ function Login() {
               <Button
                 w={"15%"}
                 bgColor={"lightgray"}
-                onClick={updateLogOut(indexUser)}
+                onClick={logout(indexUser)}
               >
                 Log Out
               </Button>
