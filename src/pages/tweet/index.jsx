@@ -28,7 +28,7 @@ function Tweet() {
   };
   useEffect(() => {
     fetchDataLogin();
-  }, []);
+  }, [tweets]);
 
   return (
     <Box>
@@ -51,7 +51,7 @@ function Tweet() {
             </Box>
             <Box>
               <PostsList />
-              {tweets.map((item, index) => {
+              {tweets.toReversed().map((item, index) => {
                 return (
                   <Box
                     key={index}
@@ -64,12 +64,7 @@ function Tweet() {
                     <Divider border={"1px solid gray"} />
                     <Text>{item.tweet}</Text>
                     <Text fontSize={".75em"}>{item.time}</Text>
-                    <Button size={"xs"} bgColor={"lightgray"}>
-                      <Link>View Tweet</Link>
-                    </Button>
-                    <Button size={"xs"} bgColor={"lightgray"}>
-                      <Link>Edit Tweet</Link>
-                    </Button>
+                    <Link fontSize={".75em"}>Delete Tweet</Link>
                   </Box>
                 );
               })}

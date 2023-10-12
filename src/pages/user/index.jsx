@@ -4,7 +4,7 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 function User() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");
@@ -16,7 +16,7 @@ function User() {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <Box p={"1em"} border={"2px solid gray"} borderRadius={"1em"}>

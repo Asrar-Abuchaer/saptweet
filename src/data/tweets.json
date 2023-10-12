@@ -14,9 +14,21 @@
     },
     {
       "username": "asrar",
-      "tweet": "Siang saya makan ayam full",
+      "tweet": "Malam ini saya makan nasi goreng",
       "time": "10/11/2023",
       "id": 3
+    },
+    {
+      "username": "putu",
+      "tweet": "Hari ini breakfast connect",
+      "time": "10/12/2023",
+      "id": 4
+    },
+    {
+      "username": "putu",
+      "tweet": "Test login",
+      "time": "10/12/2023",
+      "id": 5
     }
   ]
 }

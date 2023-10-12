@@ -6,6 +6,7 @@ import {
   FormControl,
   FormLabel,
   Center,
+  VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -25,7 +26,8 @@ const LoginSchema = Yup.object().shape({
 function Login() {
   const [accounts, setAccounts] = useState([]);
   const navigate = useNavigate();
-
+  let newEmail;
+  let indexUser;
   const fetchDataLogin = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");
@@ -56,14 +58,26 @@ function Login() {
       });
   };
 
-  console.log(accounts);
-
+  const logOut = (index) => {
+    axios
+      .patch(`http://localhost:3000/users/${index}`, {
+        isLogin: "false",
+      })
+      .then((resp) => {
+        console.log(resp.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const updateLogOut = async () => {
+    await logOut(indexUser);
+    alert("Logout Success");
+  };
   const check = (email, password) => {
     if (allEmail.includes(email)) {
-      const newEmail = accounts[allEmail.indexOf(email)];
-      // console.log(account)
-      const indexUser = allEmail.indexOf(email) + 1;
-      console.log(`-----${indexUser}------`);
+      newEmail = accounts[allEmail.indexOf(email)];
+      indexUser = allEmail.indexOf(email) + 1;
       updateIsLogin(indexUser);
       if (newEmail.password.includes(password)) {
         navigate("/saptweet");
@@ -83,6 +97,8 @@ function Login() {
     validationSchema: LoginSchema,
     onSubmit: (values) => {
       check(values.email, values.password);
+      console.log(newEmail);
+      console.log(indexUser);
     },
   });
 
@@ -134,14 +150,17 @@ function Login() {
             </Box>
           </form>
           <Box>
-            <Text>
-              <Center>
+            <VStack>
+              <Text>
                 Belum punya akun?{" "}
                 <Text as="b">
                   <Link to="/register">Register</Link>
                 </Text>
-              </Center>
-            </Text>
+              </Text>
+              <Button w={"15%"} bgColor={"lightgray"} onClick={updateLogOut}>
+                Log Out
+              </Button>
+            </VStack>
           </Box>
         </Box>
       </Box>
