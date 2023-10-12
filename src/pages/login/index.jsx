@@ -165,7 +165,7 @@ function Login() {
               <Button
                 w={"15%"}
                 bgColor={"lightgray"}
-                onClick={updateLogOut(indexUser)}
+                onClick={logout(indexUser)}
               >
                 Log Out
               </Button>
