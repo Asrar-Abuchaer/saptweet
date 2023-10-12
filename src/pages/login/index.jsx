@@ -78,7 +78,7 @@ function Login() {
   const updateIsLogout = (index) => {
     axios
       .patch(`http://localhost:3000/users/${index}`, {
-        isLogin: "true",
+        isLogin: "false",
       })
       .then((resp) => {
         console.log(resp.data);
