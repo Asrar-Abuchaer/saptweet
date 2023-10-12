@@ -2,16 +2,12 @@ import {
   Box,
   Flex,
   HStack,
-  Input,
   Spacer,
   IconButton,
-  InputGroup,
-  InputLeftElement,
   Button,
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { GoSearch } from "react-icons/go";
 import { AiTwotoneHome } from "react-icons/ai";
 
 function Navbar() {

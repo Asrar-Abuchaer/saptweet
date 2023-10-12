@@ -3,44 +3,23 @@
     {
       "id": 1,
       "email": "samuelwilliams@gmail.com",
-      "password": "bangsatbangsat",
+      "password": "baikbaik",
       "username": "samuel",
       "isLogin": "false"
     },
     {
-      "id": 2,
       "email": "putu.phillip@gmail.com",
-      "password": "bangsatbangsat",
+      "password": "baikbaik",
       "username": "putu",
-      "isLogin": "true"
+      "isLogin": "true",
+      "id": 2
     },
     {
       "id": 3,
       "email": "asrarabuchaer@gmail.com",
-      "password": "bangsatbangsat",
+      "password": "baikbaik",
       "username": "asrar",
       "isLogin": "false"
-    },
-    {
-      "id": 4,
-      "email": "tengku@gmail.com",
-      "password": "bangsatbangsat",
-      "username": "abda",
-      "isLogin": "false"
-    },
-    {
-      "id": 5,
-      "email": "andri@gmail.com",
-      "password": "bangsatbangsat",
-      "username": "andri",
-      "isLogin": "false"
-    },
-    {
-      "email": "sam@gmail.com",
-      "password": "saaassssss",
-      "username": "asu",
-      "isLogin": "false",
-      "id": 6
     }
   ]
 }

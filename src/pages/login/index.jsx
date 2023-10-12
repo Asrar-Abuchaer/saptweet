@@ -6,6 +6,7 @@ import {
   FormControl,
   FormLabel,
   Center,
+  VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -22,15 +23,17 @@ const LoginSchema = Yup.object().shape({
     .required("Password is required"),
 });
 
-export const Login = () => {
+function Login() {
   const [accounts, setAccounts] = useState([]);
-  const Navigate = useNavigate();
-
-  const fatchDataLogin = async () => {
+  const navigate = useNavigate();
+  let newEmail;
+  let indexUser;
+  const fetchDataLogin = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setAccounts(response.data);
       console.log(response.data);
+      console.log(`--Fetch Login Success--`);
     } catch (err) {
       console.log(err);
     }
@@ -39,22 +42,56 @@ export const Login = () => {
   const allEmail = accounts.map((item) => item.email);
 
   useEffect(() => {
-    fatchDataLogin();
+    fetchDataLogin();
   }, []);
 
-  // console.log(accounts);
+  const updateIsLogin = (index) => {
+    axios
+      .patch(`http://localhost:3000/users/${index}`, {
+        isLogin: "true",
+      })
+      .then((resp) => {
+        console.log(resp.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const check = (email, password) => {
     if (allEmail.includes(email)) {
-      const newEmail = accounts[allEmail.indexOf(email)];
+      newEmail = accounts[allEmail.indexOf(email)];
+      indexUser = allEmail.indexOf(email) + 1;
+      updateIsLogin(indexUser);
+      console.log(newEmail);
+      console.log(indexUser);
       if (newEmail.password.includes(password)) {
-        localStorage.setItem("akun", allEmail.indexOf(email));
-        Navigate("/saptweet");
+        navigate("/saptweet");
       } else {
         alert("Password salah");
       }
     } else {
       alert("Email Belum Terdaftar");
     }
+  };
+
+  const updateIsLogout = (index) => {
+    axios
+      .patch(`http://localhost:3000/users/${index}`, {
+        isLogin: "true",
+      })
+      .then((resp) => {
+        console.log(resp.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const logout = (index) => {
+    console.log(newEmail);
+    console.log(indexUser);
+    updateIsLogout(index);
   };
 
   const formik = useFormik({
@@ -65,6 +102,8 @@ export const Login = () => {
     validationSchema: LoginSchema,
     onSubmit: (values) => {
       check(values.email, values.password);
+      console.log(newEmail);
+      console.log(indexUser);
     },
   });
 
@@ -116,17 +155,26 @@ export const Login = () => {
             </Box>
           </form>
           <Box>
-            <Text>
-              <Center>
+            <VStack>
+              <Text>
                 Belum punya akun?{" "}
                 <Text as="b">
                   <Link to="/register">Register</Link>
                 </Text>
-              </Center>
-            </Text>
+              </Text>
+              <Button
+                w={"15%"}
+                bgColor={"lightgray"}
+                onClick={updateLogOut(indexUser)}
+              >
+                Log Out
+              </Button>
+            </VStack>
           </Box>
         </Box>
       </Box>
     </Box>
   );
-};
+}
+
+export default Login;
