@@ -11,7 +11,7 @@
       "email": "putu.phillip@gmail.com",
       "password": "baikbaik",
       "username": "putu",
-      "isLogin": "true",
+      "isLogin": "false",
       "id": 2
     },
     {
@@ -20,6 +20,13 @@
       "password": "baikbaik",
       "username": "asrar",
       "isLogin": "false"
+    },
+    {
+      "email": "surya@gmail.com",
+      "password": "baikbaik",
+      "username": "surya",
+      "isLogin": "true",
+      "id": 4
     }
   ]
 }
