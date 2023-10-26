@@ -115,7 +115,7 @@ function Login() {
           <form onSubmit={formik.handleSubmit}>
             <Box>
               <Box>
-                <Text as="b">Login</Text>
+                <Center fontSize={"2xl"} as="b">LOGIN</Center>
               </Box>
               <FormControl>
                 <FormLabel>Email</FormLabel>

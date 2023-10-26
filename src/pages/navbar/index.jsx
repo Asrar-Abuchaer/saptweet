@@ -13,7 +13,7 @@ import { AiTwotoneHome } from "react-icons/ai";
 function Navbar() {
   return (
     <Box
-      bg={"lightgrey"}
+      bg={"#3876BF"}
       p={"1em 5em"}
       w={"full"}
       position={"fixed"}
@@ -34,8 +34,8 @@ function Navbar() {
               </Link>
             </Box>
             <Button
-              backgroundColor={"transparent"}
-              _hover={{ bgColor: "transparent" }}
+              backgroundColor={"white"}
+              // _hover={{ bgColor: "transparent" }}
               p={".3em 1em"}
               borderRadius={".3em"}
               border={"2px solid grey"}
@@ -48,8 +48,8 @@ function Navbar() {
         <Box>
           <HStack>
             <Button
-              backgroundColor={"transparent"}
-              _hover={{ bgColor: "transparent" }}
+              backgroundColor={"white"}
+              // _hover={{ bgColor: "transparent" }}
               p={".3em 1em"}
               borderRadius={".3em"}
               border={"2px solid grey"}
