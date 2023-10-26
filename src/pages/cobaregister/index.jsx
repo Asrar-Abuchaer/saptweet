@@ -9,6 +9,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Center,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import Navbar from "../navbar";
@@ -126,9 +127,11 @@ function CobaRegister() {
               />
             </InputGroup>
           </FormControl>
-          <Button type="submit" mt={"1em"}>
-            REGISTER
-          </Button>
+          <Center>
+            <Button textColor={"White"} as={"b"} bgColor={"#3876BF"} type="submit" mt={"1em"}>
+              REGISTER
+            </Button>
+          </Center>
         </form>
       </Box>
     </Box>

@@ -7,6 +7,8 @@ import {
   FormLabel,
   Center,
   VStack,
+  Toast,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -24,6 +26,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 function Login() {
+  const toast = useToast();
   const [accounts, setAccounts] = useState([]);
   const navigate = useNavigate();
   let newEmail;
@@ -45,54 +48,67 @@ function Login() {
     fetchDataLogin();
   }, []);
 
-  const updateIsLogin = (index) => {
-    axios
-      .patch(`http://localhost:3000/users/${index}`, {
-        isLogin: "true",
-      })
-      .then((resp) => {
-        console.log(resp.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const updateIsLogin = (index) => {
+  //   axios
+  //     .patch(`http://localhost:3000/users/${index}`, {
+  //       // isLogin: "true",
+  //     })
+  //     .then((resp) => {
+  //       console.log(resp.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   const check = (email, password) => {
     if (allEmail.includes(email)) {
-      newEmail = accounts[allEmail.indexOf(email)];
-      indexUser = allEmail.indexOf(email) + 1;
-      updateIsLogin(indexUser);
-      console.log(newEmail);
-      console.log(indexUser);
+      const newEmail = accounts[allEmail.indexOf(email)];
+      if (newEmail.password.includes(password)) {
+        indexUser = allEmail.indexOf(email);
+        console.log(indexUser[indexUser]);
+        localStorage.setItem("akun", allEmail[indexUser]);
+      }
+      console.log(localStorage);
+      // updateIsLogin(indexUser);
       if (newEmail.password.includes(password)) {
         navigate("/saptweet");
       } else {
-        alert("Password salah");
+        toast({
+          title: "Password Salah",
+          status: "error",
+          position: "top",
+          isClosable: "true",
+        });
       }
     } else {
-      alert("Email Belum Terdaftar");
+      toast({
+        title: "Email Belum Terdaftar",
+        status: "error",
+        position: "top",
+        isClosable: "true",
+      });
     }
   };
 
-  const updateIsLogout = (index) => {
-    axios
-      .patch(`http://localhost:3000/users/${index}`, {
-        isLogin: "false",
-      })
-      .then((resp) => {
-        console.log(resp.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const updateIsLogout = (index) => {
+  //   axios
+  //     .patch(`http://localhost:3000/users/${index}`, {
+  //       isLogin: "false",
+  //     })
+  //     .then((resp) => {
+  //       console.log(resp.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-  const logout = (index) => {
-    console.log(newEmail);
-    console.log(indexUser);
-    updateIsLogout(index);
-  };
+  // const logout = (index) => {
+  //   console.log(newEmail);
+  //   console.log(indexUser);
+  //   updateIsLogout(index);
+  // };
 
   const formik = useFormik({
     initialValues: {
@@ -102,8 +118,8 @@ function Login() {
     validationSchema: LoginSchema,
     onSubmit: (values) => {
       check(values.email, values.password);
-      console.log(newEmail);
-      console.log(indexUser);
+      // console.log(newEmail);
+      // console.log(indexUser);
     },
   });
 
@@ -115,7 +131,7 @@ function Login() {
           <form onSubmit={formik.handleSubmit}>
             <Box>
               <Box>
-                <Text as="b">Login</Text>
+                <Center fontSize={"2xl"} as="b">LOGIN</Center>
               </Box>
               <FormControl>
                 <FormLabel>Email</FormLabel>
@@ -148,7 +164,14 @@ function Login() {
                 />
               </FormControl>
               <Box display={"flex"} justifyContent={"center"}>
-                <Button mt={".5em"} type="submit" p=".5em 1em">
+                <Button
+                  as={"b"}
+                  bgColor={"#3876BF"}
+                  textColor={"white"}
+                  mt={".5em"}
+                  type="submit"
+                  p=".5em 1em"
+                >
                   Login
                 </Button>
               </Box>
@@ -162,13 +185,16 @@ function Login() {
                   <Link to="/register">Register</Link>
                 </Text>
               </Text>
-              <Button
+              {/* <Button
                 w={"15%"}
                 bgColor={"lightgray"}
-                onClick={logout(indexUser)}
+                onClick={async () => {
+                  await localStorage.removeItem("akun");
+                  console.log(localStorage);
+                }}
               >
                 Log Out
-              </Button>
+              </Button> */}
             </VStack>
           </Box>
         </Box>

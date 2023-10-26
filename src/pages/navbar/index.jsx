@@ -4,16 +4,19 @@ import {
   HStack,
   Spacer,
   IconButton,
+  Text,
   Button,
+  Image,
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiTwotoneHome } from "react-icons/ai";
+import logo from "../../img/logo.svg";
 
 function Navbar() {
   return (
     <Box
-      bg={"lightgrey"}
+      bg={"#3876BF"}
       p={"1em 5em"}
       w={"full"}
       position={"fixed"}
@@ -22,20 +25,14 @@ function Navbar() {
       <Flex alignItems={"center"}>
         <Box>
           <HStack>
-            <Box>
+            <Box w={"10em"}>
               <Link to={"/"}>
-                <IconButton
-                  backgroundColor={"transparent"}
-                  fontSize={"1.5em"}
-                  size="md"
-                  icon={<AiTwotoneHome />}
-                  _hover={{ bgColor: "transparent" }}
-                />
+                <Image src={logo} />
               </Link>
             </Box>
             <Button
-              backgroundColor={"transparent"}
-              _hover={{ bgColor: "transparent" }}
+              backgroundColor={"white"}
+              // _hover={{ bgColor: "transparent" }}
               p={".3em 1em"}
               borderRadius={".3em"}
               border={"2px solid grey"}
@@ -48,23 +45,43 @@ function Navbar() {
         <Box>
           <HStack>
             <Button
-              backgroundColor={"transparent"}
-              _hover={{ bgColor: "transparent" }}
+              backgroundColor={"white"}
+              // _hover={{ bgColor: "transparent" }}
               p={".3em 1em"}
-              borderRadius={".3em"}
-              border={"2px solid grey"}
+              borderRadius={".5em"}
+              _active={"none"}
+              // border={"2px solid grey"}
             >
-              <Link to={"/saptweet"}>SAP TWEET</Link>
+              <Link to={"/saptweet"}>
+                <Text textColor={"white"}>TWEET</Text>
+              </Link>
             </Button>
-            {/* <Button
-              backgroundColor={"transparent"}
-              _hover={{ bgColor: "transparent" }}
+            <Spacer />
+            <Button
+              backgroundColor={"#192655"}
+              _hover={{ bgColor: "none" }}
               p={".3em 1em"}
-              borderRadius={".3em"}
-              border={"2px solid grey"}
+              borderRadius={".5em"}
+              _active={"none"}
+              // border={"2px solid grey"}
             >
-              <Link to={"/saptweet"}>SAP Tweet</Link>
-            </Button> */}
+              <Link as={"b"} to={"/"}>
+                <Text textColor={"white"}>LOG OUT</Text>
+              </Link>
+            </Button>
+            <Spacer />
+            <Button
+              backgroundColor={"#192655"}
+              _hover={{ bgColor: "none" }}
+              p={".3em 1em"}
+              borderRadius={".5em"}
+              _active={"none"}
+              // border={"2px solid grey"}
+            >
+              <Link to={"/login"}>
+                <Text textColor={"white"}>LOGIN</Text>
+              </Link>
+            </Button>
           </HStack>
         </Box>
       </Flex>
