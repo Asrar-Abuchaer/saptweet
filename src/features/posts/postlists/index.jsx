@@ -1,4 +1,4 @@
-import { Box, Divider, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, Center, Divider, HStack, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -68,9 +68,11 @@ export default function PostsList() {
     <Box p={".5em"}>
       <VStack align={"stretch"}>
         <Box>
-          <Text>Tweets</Text>
+          <Center>
+          <Text as={"b"}>Tweets</Text>
+          </Center>
         </Box>
-        <Divider border={"1px solid gray"} />
+        <Divider/>
         <Box>
           <VStack align={"stretch"}>{renderedPosts}</VStack>
         </Box>
