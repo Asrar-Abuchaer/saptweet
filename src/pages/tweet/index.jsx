@@ -28,7 +28,7 @@ function Tweet() {
   };
   useEffect(() => {
     fetchDataLogin();
-  }, [tweets]);
+  }, []);
 
   return (
     <Box>
@@ -43,7 +43,7 @@ function Tweet() {
             w={"50%"}
             p={"1em"}
             pt={"0"}
-            border={"2px solid gray"}
+            // border={"2px solid gray"}
             borderRadius={"1em"}
           >
             <Box>
@@ -56,9 +56,10 @@ function Tweet() {
                   <Box
                     key={index}
                     p={".5em"}
-                    bgColor={"lightgray"}
+                    bgColor={"white"}
                     marginBottom={".5em"}
                     borderRadius={".5em"}
+                    border={"1px solid black"}
                   >
                     <Text as={"b"}>@{item.username}</Text>
                     <Divider border={"1px solid gray"} />
