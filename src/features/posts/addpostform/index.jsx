@@ -1,8 +1,10 @@
 import {
   Box,
   Button,
+  Center,
   FormControl,
   Input,
+  Spacer,
   Text,
   Textarea,
   VStack,
@@ -76,10 +78,12 @@ export default function AddPostForm() {
   });
 
   return (
-    <Box p={".5em"}>
+    <Box p={".5em"} bgColor={"#3876BF"} borderRadius={"1em"} color={"white"}>
       <VStack align={"stretch"}>
-        <Box>
+        <Box >
+          <Center>
           <Text as={"b"}>Tweet your speech</Text>
+          </Center>
         </Box>
         <Box>
           <form onSubmit={formik.handleSubmit}>
@@ -92,14 +96,17 @@ export default function AddPostForm() {
                     name="tweet"
                     value={formik.values.tweet}
                     onChange={formik.handleChange}
+                    bgColor={"white"}
+                    color={"black"}
                   />
                 </FormControl>
               </Box>
               <Box>
                 <Button
                   type="submit"
-                  // onClick={onSavePostClicked}
-                  bgColor={"lightgray"}
+                  // onClick={onSavePostClicked} 
+                  // bgColor={"transparent"}
+                  size={"sm"}
                 >
                   Tweet
                 </Button>
