@@ -164,7 +164,14 @@ function Login() {
                 />
               </FormControl>
               <Box display={"flex"} justifyContent={"center"}>
-                <Button mt={".5em"} type="submit" p=".5em 1em">
+                <Button
+                  as={"b"}
+                  bgColor={"#3876BF"}
+                  textColor={"white"}
+                  mt={".5em"}
+                  type="submit"
+                  p=".5em 1em"
+                >
                   Login
                 </Button>
               </Box>
@@ -178,7 +185,7 @@ function Login() {
                   <Link to="/register">Register</Link>
                 </Text>
               </Text>
-              <Button
+              {/* <Button
                 w={"15%"}
                 bgColor={"lightgray"}
                 onClick={async () => {
@@ -187,7 +194,7 @@ function Login() {
                 }}
               >
                 Log Out
-              </Button>
+              </Button> */}
             </VStack>
           </Box>
         </Box>
