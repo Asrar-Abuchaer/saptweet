@@ -131,7 +131,9 @@ function Login() {
           <form onSubmit={formik.handleSubmit}>
             <Box>
               <Box>
-                <Center fontSize={"2xl"} as="b">LOGIN</Center>
+                <Center fontSize={"2xl"} as="b">
+                  LOGIN
+                </Center>
               </Box>
               <FormControl>
                 <FormLabel>Email</FormLabel>
@@ -169,7 +171,7 @@ function Login() {
                   bgColor={"#3876BF"}
                   textColor={"white"}
                   mt={".5em"}
-                  type="submit"
+                  type={"submit"}
                   p=".5em 1em"
                 >
                   Login
@@ -185,7 +187,7 @@ function Login() {
                   <Link to="/register">Register</Link>
                 </Text>
               </Text>
-              {/* <Button
+              <Button
                 w={"15%"}
                 bgColor={"lightgray"}
                 onClick={async () => {
@@ -194,7 +196,7 @@ function Login() {
                 }}
               >
                 Log Out
-              </Button> */}
+              </Button>
             </VStack>
           </Box>
         </Box>
