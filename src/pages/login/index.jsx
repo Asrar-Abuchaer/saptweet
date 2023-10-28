@@ -29,7 +29,6 @@ function Login() {
   const toast = useToast();
   const [accounts, setAccounts] = useState([]);
   const navigate = useNavigate();
-  let newEmail;
   let indexUser;
   const fetchDataLogin = async () => {
     try {
@@ -48,19 +47,6 @@ function Login() {
     fetchDataLogin();
   }, []);
 
-  // const updateIsLogin = (index) => {
-  //   axios
-  //     .patch(`http://localhost:3000/users/${index}`, {
-  //       // isLogin: "true",
-  //     })
-  //     .then((resp) => {
-  //       console.log(resp.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   const check = (email, password) => {
     if (allEmail.includes(email)) {
       const newEmail = accounts[allEmail.indexOf(email)];
@@ -70,7 +56,6 @@ function Login() {
         localStorage.setItem("akun", allEmail[indexUser]);
       }
       console.log(localStorage);
-      // updateIsLogin(indexUser);
       if (newEmail.password.includes(password)) {
         navigate("/saptweet");
       } else {
@@ -91,25 +76,6 @@ function Login() {
     }
   };
 
-  // const updateIsLogout = (index) => {
-  //   axios
-  //     .patch(`http://localhost:3000/users/${index}`, {
-  //       isLogin: "false",
-  //     })
-  //     .then((resp) => {
-  //       console.log(resp.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const logout = (index) => {
-  //   console.log(newEmail);
-  //   console.log(indexUser);
-  //   updateIsLogout(index);
-  // };
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -118,8 +84,6 @@ function Login() {
     validationSchema: LoginSchema,
     onSubmit: (values) => {
       check(values.email, values.password);
-      // console.log(newEmail);
-      // console.log(indexUser);
     },
   });
 
