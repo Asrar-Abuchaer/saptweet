@@ -1,16 +1,6 @@
-import {
-  Box,
-  Flex,
-  HStack,
-  Spacer,
-  IconButton,
-  Text,
-  Button,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, Spacer, Text, Image } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiTwotoneHome } from "react-icons/ai";
 import logo from "../../img/logo.svg";
 
 function Navbar() {
@@ -35,44 +25,23 @@ function Navbar() {
         <Spacer />
         <Box>
           <HStack>
-            <Button
-              backgroundColor={"#192655"}
-              _hover={{ bgColor: "none" }}
-              p={".3em 1em"}
-              borderRadius={".5em"}
-              _active={"none"}
-              // border={"2px solid grey"}
-            >
-              <Link to={"/saptweet"}>
-                <Text textColor={"white"}>TWEET</Text>
-              </Link>
-            </Button>
+            <Link to={"/saptweet"}>
+              <Text as={"b"} textColor={"white"}>
+                TWEET
+              </Text>
+            </Link>
             <Spacer />
-            <Button
-              backgroundColor={"#192655"}
-              _hover={{ bgColor: "none" }}
-              p={".3em 1em"}
-              borderRadius={".5em"}
-              _active={"none"}
-              // border={"2px solid grey"}
-            >
-              <Link as={"b"} to={"/"}>
-                <Text textColor={"white"}>LOG OUT</Text>
-              </Link>
-            </Button>
+            <Link to={"/"}>
+              <Text as={"b"} textColor={"white"}>
+                LOG OUT
+              </Text>
+            </Link>
             <Spacer />
-            <Button
-              backgroundColor={"#192655"}
-              _hover={{ bgColor: "none" }}
-              p={".3em 1em"}
-              borderRadius={".5em"}
-              _active={"none"}
-              // border={"2px solid grey"}
-            >
-              <Link to={"/login"}>
-                <Text textColor={"white"}>LOGIN</Text>
-              </Link>
-            </Button>
+            <Link to={"/login"}>
+              <Text as={"b"} textColor={"white"}>
+                LOGIN
+              </Text>
+            </Link>
           </HStack>
         </Box>
       </Flex>

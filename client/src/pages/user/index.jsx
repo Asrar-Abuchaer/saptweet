@@ -1,10 +1,10 @@
-import { Text, Box, Center, VStack, Divider, Card } from "@chakra-ui/react";
-import Navbar from "../navbar";
+import { Text, Box, VStack, Divider } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 function User() {
   const [data, setData] = useState([]);
+
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");
@@ -14,12 +14,13 @@ function User() {
       console.log(err);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <Box p={"1em"} borderRadius={"1em"} bgColor={"#192655"} >
+    <Box p={"1em"} borderRadius={"1em"} bgColor={"#192655"}>
       <Box>
         <VStack align={"end"}>
           <Box>
@@ -32,8 +33,6 @@ function User() {
             {data?.length > 0 &&
               data.map((item, index) => {
                 return (
-                  // console.log(item)
-                  // console.log(localStorage["akun"] === item.username)
                   <Text key={index} color={"white"}>
                     {localStorage["akun"] === item.email
                       ? ``

@@ -1,12 +1,4 @@
-import {
-  Box,
-  Divider,
-  Flex,
-  Spacer,
-  Text,
-  Link,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Divider, Flex, Spacer, Text, Link } from "@chakra-ui/react";
 import Navbar from "../navbar";
 import PostsList from "../../features/posts/postlists";
 import AddPostForm from "../../features/posts/addpostform";

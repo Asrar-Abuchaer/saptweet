@@ -1,105 +1,136 @@
-import { Box, Text, Input, Button, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import * as Yup from "yup";
+import {
+  Box,
+  Button,
+  Input,
+  InputGroup,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Center,
+} from "@chakra-ui/react";
+import { useFormik } from "formik";
 import Navbar from "../navbar";
-import React, { useState } from "react";
 
+const LoginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email address format")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(7, "password must be 7 characters minimum")
+    .required("email is required"),
+});
 function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  // States for checking the errors
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
-
-  // Handling the name change
-  const handleName = (e) => {
-    setName(e.target.value);
-    setSubmitted(false);
-  };
-
-  // Handling the email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setSubmitted(false);
-  };
-
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setSubmitted(false);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name === "" || email === "" || password === "") {
-      setError(true);
-    } else {
-      setSubmitted(true);
-      setError(false);
+  const register = async (email, password, username, isLogin) => {
+    try {
+      await axios.post("http://localhost:3000/users", {
+        email,
+        password,
+        username,
+      });
+      alert("Success");
+    } catch (err) {
+      throw err;
     }
   };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      username: "",
+    },
+    // validationSchema: LoginSchema,
+    onSubmit: (values) => {
+      register(values.email, values.password, values.username);
+    },
+  });
 
-  const successMessage = () => {
-    return (
-      <Box
-        bgColor={"green"}
-        style={{
-          display: submitted ? "" : "none",
-        }}
-      >
-        <Text>User {name} successfully registered!!</Text>
-      </Box>
-    );
-  };
-
-  const errorMessage = () => {
-    return (
-      <Box
-        bgColor={"red"}
-        style={{
-          display: error ? "" : "none",
-        }}
-      >
-        <Text>Please enter all the fields</Text>
-      </Box>
-    );
-  };
   return (
     <Box>
       <Navbar />
-      <Box p={"0 10em"} paddingTop={"5em"}>
-        <VStack align={"stretch"}>
-          <Box>
-            <Text as={"b"}>User Registration</Text>
-          </Box>
-          <Box>
-            {errorMessage()}
-            {successMessage()}
-          </Box>
-          <Box>
-            <VStack align={"stretch"}>
-              <Text>Name</Text>
+      <Box p={"5em"}>
+        <form onSubmit={formik.handleSubmit}>
+          <FormLabel>Email </FormLabel>
+          <FormControl isInvalid={formik.touched.email && formik.errors.email}>
+            <InputGroup>
               <Input
-                size={"lg"}
-                onChange={handleName}
-                value={name}
+                size="lg"
                 type="text"
+                name="email"
+                placeholder="Input Your Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                border="2px solid #192655"
+                color="black"
+                _hover={"none"}
+                variant={"ghost"}
+                _focus={{ border: "3px solid #192655" }}
               />
-              <Text>Email</Text>
-              <Input onChange={handleEmail} value={email} type="email" />
-              <Text>Password</Text>
+            </InputGroup>
+            {formik.touched.password && formik.errors.password && (
+              <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormLabel>Username </FormLabel>
+          <FormControl
+            isInvalid={formik.touched.email && formik.errors.email}
+            nb={5}
+          >
+            <InputGroup>
               <Input
-                onChange={handlePassword}
-                value={password}
-                type="password"
+                size="lg"
+                type="text"
+                name="username"
+                placeholder="Input Your Username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                border="2px solid #192655"
+                color="black"
+                _hover={"none"}
+                variant={"ghost"}
+                _focus={{ border: "3px solid #192655" }}
               />
+            </InputGroup>
+          </FormControl>
+          <FormLabel>Password</FormLabel>
+          <FormControl
+            isInvalid={formik.touched.email && formik.errors.email}
+            nb={5}
+          >
+            <InputGroup>
+              <Input
+                size="lg"
+                type="password"
+                name="password"
+                placeholder="Input Your Password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                border="2px solid #192655"
+                color="black"
+                _hover={"none"}
+                variant={"ghost"}
+                _focus={{ border: "3px solid #192655" }}
+              />
+            </InputGroup>
+            {formik.touched.password && formik.errors.password && (
+              <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+            )}
+          </FormControl>
 
-              <Button onClick={handleSubmit} type="submit" w={"15%"}>
-                Submit
-              </Button>
-            </VStack>
-          </Box>
-        </VStack>
+          <Center>
+            <Button
+              textColor={"White"}
+              as={"b"}
+              bgColor={"#3876BF"}
+              type={"submit"}
+              mt={"1em"}
+            >
+              REGISTER
+            </Button>
+          </Center>
+        </form>
       </Box>
     </Box>
   );

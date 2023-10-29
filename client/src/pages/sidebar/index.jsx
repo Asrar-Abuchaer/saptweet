@@ -5,16 +5,14 @@ function SideBar() {
       <Box>
         <VStack align={"stretch"}>
           <Box>
-            <Text as="b" color={"white"}>SIDEBAR</Text>
+            <Text as="b" color={"white"}>
+              SIDEBAR
+            </Text>
           </Box>
           <Divider color={"white"} />
           <Box>
             <VStack align={"stretch"} color={"white"}>
-              <Text>SAPTWEET</Text>
-              <Text>SAPTWEET</Text>
-              <Text>SAPTWEET</Text>
-              <Text>SAPTWEET</Text>
-              <Text>SAPTWEET</Text>
+              <Text>NOTHING</Text>
             </VStack>
           </Box>
         </VStack>

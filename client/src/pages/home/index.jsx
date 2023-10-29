@@ -4,7 +4,6 @@ import {
   Center,
   Text,
   Image,
-  Link,
   VStack,
   Spacer,
 } from "@chakra-ui/react";

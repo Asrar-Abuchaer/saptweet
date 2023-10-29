@@ -4,29 +4,31 @@
       "id": 1,
       "email": "samuelwilliams@gmail.com",
       "password": "baikbaik",
-      "username": "samuel",
-      "isLogin": "true"
+      "username": "samuel"
     },
     {
       "email": "putu.phillip@gmail.com",
       "password": "baikbaik",
       "username": "putu",
-      "isLogin": "false",
       "id": 2
     },
     {
       "id": 3,
       "email": "asrarabuchaer@gmail.com",
       "password": "baikbaik",
-      "username": "asrar",
-      "isLogin": "false"
+      "username": "asrar"
     },
     {
       "email": "surya@gmail.com",
       "password": "baikbaik",
       "username": "surya",
-      "isLogin": "true",
       "id": 4
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "baikbaik",
+      "username": "test",
+      "id": 5
     }
   ]
 }

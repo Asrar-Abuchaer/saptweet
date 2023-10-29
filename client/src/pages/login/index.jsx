@@ -3,12 +3,9 @@ import {
   Text,
   Input,
   Button,
-  FormControl,
   FormLabel,
   Center,
   VStack,
-  Toast,
-  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -26,18 +23,15 @@ const LoginSchema = Yup.object().shape({
 });
 
 function Login() {
-  const toast = useToast();
   const [accounts, setAccounts] = useState([]);
   const navigate = useNavigate();
-  let indexUser;
   const fetchDataLogin = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setAccounts(response.data);
-      console.log(response.data);
       console.log(`--Fetch Login Success--`);
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   };
 
@@ -47,35 +41,6 @@ function Login() {
     fetchDataLogin();
   }, []);
 
-  const check = (email, password) => {
-    if (allEmail.includes(email)) {
-      const newEmail = accounts[allEmail.indexOf(email)];
-      if (newEmail.password.includes(password)) {
-        indexUser = allEmail.indexOf(email);
-        console.log(indexUser[indexUser]);
-        localStorage.setItem("akun", allEmail[indexUser]);
-      }
-      console.log(localStorage);
-      if (newEmail.password.includes(password)) {
-        navigate("/saptweet");
-      } else {
-        toast({
-          title: "Password Salah",
-          status: "error",
-          position: "top",
-          isClosable: "true",
-        });
-      }
-    } else {
-      toast({
-        title: "Email Belum Terdaftar",
-        status: "error",
-        position: "top",
-        isClosable: "true",
-      });
-    }
-  };
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -83,9 +48,20 @@ function Login() {
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
+      alert(values);
       check(values.email, values.password);
     },
   });
+
+  const check = (email, password) => {
+    if (allEmail.includes(email)) {
+      const inputtedEmail = accounts[allEmail.indexOf(email)];
+      if (accounts[allEmail.indexOf(test)]["password"] === password) {
+        localStorage.setItem("akun", inputtedEmail["email"]);
+        navigate("/saptweet");
+      }
+    }
+  };
 
   return (
     <Box>
@@ -99,48 +75,49 @@ function Login() {
                   LOGIN
                 </Center>
               </Box>
-              <FormControl>
-                <FormLabel>Email</FormLabel>
-                <Input
-                  type="text"
-                  name="email"
-                  size={"lg"}
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  bgColor="transparent"
-                  border="2px solid gray"
-                  color="black"
-                />
-              </FormControl>
-              <FormControl
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
+              <FormLabel>Email</FormLabel>
+              <Input
+                type="text"
+                id="email"
+                name="email"
+                size={"lg"}
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                bgColor="transparent"
+                border="2px solid #192655"
+                color="black"
+                _hover={"none"}
+                variant={"ghost"}
+                _focus={{ border: "3px solid #192655" }}
+              />
+
+              <FormLabel>Password</FormLabel>
+              <Input
+                type="password"
+                id="password"
+                name="password"
+                size={"lg"}
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                bgColor="transparent"
+                border="2px solid #192655"
+                color="black"
+                _hover={"none"}
+                variant={"ghost"}
+                _focus={{ border: "3px solid #192655" }}
+              />
+              <Button
+                type={"submit"}
+                as={"b"}
+                bgColor={"#3876BF"}
+                textColor={"white"}
+                mt={".5em"}
+                p=".5em 1em"
+                _hover={"none"}
+                cursor={"pointer"}
               >
-                <FormLabel>Password</FormLabel>
-                <Input
-                  type="password"
-                  name="password"
-                  size={"lg"}
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                  bgColor="transparent"
-                  border="2px solid gray"
-                  color="black"
-                />
-              </FormControl>
-              <Box display={"flex"} justifyContent={"center"}>
-                <Button
-                  as={"b"}
-                  bgColor={"#3876BF"}
-                  textColor={"white"}
-                  mt={".5em"}
-                  type={"submit"}
-                  p=".5em 1em"
-                >
-                  Login
-                </Button>
-              </Box>
+                Login
+              </Button>
             </Box>
           </form>
           <Box>
@@ -151,16 +128,6 @@ function Login() {
                   <Link to="/register">Register</Link>
                 </Text>
               </Text>
-              <Button
-                w={"15%"}
-                bgColor={"lightgray"}
-                onClick={async () => {
-                  await localStorage.removeItem("akun");
-                  console.log(localStorage);
-                }}
-              >
-                Log Out
-              </Button>
             </VStack>
           </Box>
         </Box>
