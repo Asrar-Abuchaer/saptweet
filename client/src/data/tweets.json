@@ -53,6 +53,30 @@
       "tweet": "percobaan tweet",
       "time": "29 / 10 / 2023",
       "id": 9
+    },
+    {
+      "username": "test",
+      "tweet": "coba test ",
+      "time": "29 / 10 / 2023",
+      "id": 10
+    },
+    {
+      "username": "test",
+      "tweet": "coba test lagi ",
+      "time": "29 / 10 / 2023",
+      "id": 11
+    },
+    {
+      "username": "putu",
+      "tweet": "coba ngetweet",
+      "time": "29 / 10 / 2023",
+      "id": 12
+    },
+    {
+      "username": "putu",
+      "tweet": "test tweet",
+      "time": "29 / 10 / 2023",
+      "id": 13
     }
   ]
 }

@@ -7,7 +7,7 @@ import { Button } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect } from "react";
 
-export default function PostsList() {
+export default function TweetLists() {
   const posts = useSelector((state) => state.posts);
   const [data, setData] = useState();
   const fetchData = async () => {
@@ -69,10 +69,10 @@ export default function PostsList() {
       <VStack align={"stretch"}>
         <Box>
           <Center>
-          <Text as={"b"}>Tweets</Text>
+            <Text as={"b"}>Tweets</Text>
           </Center>
         </Box>
-        <Divider/>
+        <Divider />
         <Box>
           <VStack align={"stretch"}>{renderedPosts}</VStack>
         </Box>

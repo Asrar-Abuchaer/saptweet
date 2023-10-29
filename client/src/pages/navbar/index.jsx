@@ -2,7 +2,9 @@ import { Box, Flex, HStack, Spacer, Text, Image } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
+import { useNavigate } from "react-router-dom";
 function Navbar() {
+  const navigate = useNavigate();
   return (
     <Box
       bg={"#3876BF"}
@@ -10,6 +12,7 @@ function Navbar() {
       w={"full"}
       position={"fixed"}
       zIndex={"2"}
+      top={"0"}
     >
       <Flex alignItems={"center"}>
         <Box>
@@ -30,18 +33,24 @@ function Navbar() {
               </Text>
             </Link>
             <Spacer />
-            <Link to={"/"}>
-              <Text
-                as={"b"}
-                onClick={() => {
-                  localStorage.removeItem("akun");
-                  console.log(localStorage);
-                }}
-                textColor={"white"}
-              >
-                LOG OUT
-              </Text>
-            </Link>
+            <Text
+              as={"b"}
+              cursor={"pointer"}
+              onClick={
+                !!localStorage["akun"]
+                  ? async () => {
+                      await navigate("/");
+                      await localStorage.removeItem("akun");
+                      setTimeout(() => {
+                        alert("logout success");
+                      }, 1000);
+                    }
+                  : () => alert("login first")
+              }
+              textColor={"white"}
+            >
+              LOG OUT
+            </Text>
             <Spacer />
             <Link to={"/login"}>
               <Text as={"b"} textColor={"white"}>

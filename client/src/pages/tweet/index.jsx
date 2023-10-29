@@ -1,7 +1,7 @@
 import { Box, Divider, Flex, Spacer, Text, Link } from "@chakra-ui/react";
 import Navbar from "../navbar";
-import PostsList from "../../features/posts/postlists";
-import AddPostForm from "../../features/posts/addpostform";
+import AddTweet from "../../features/posts/addTweet";
+import TweetLists from "../../features/posts/tweetLists";
 import User from "../user";
 import SideBar from "../sidebar";
 import axios from "axios";
@@ -9,40 +9,33 @@ import { useState, useEffect } from "react";
 
 function Tweet() {
   const [tweets, setTweets] = useState([]);
-  const fetchDataLogin = async () => {
+  const fetchTweetData = async () => {
     try {
       const response = await axios.get("http://localhost:3001/tweets");
       setTweets(response.data);
-      console.log(`--Fetch Tweet Success--`);
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   };
   useEffect(() => {
-    fetchDataLogin();
-  }, []);
+    fetchTweetData();
+  }, [tweets]);
 
   return (
     <Box>
       <Navbar />
-      <Box p={"0 5em"} paddingTop={"5em"}>
+      <Box p={"1em 5em"} mb={"3em"} mt={"5em"}>
         <Flex spac>
           <Box w={"20%"}>
             <SideBar />
           </Box>
           <Spacer />
-          <Box
-            w={"50%"}
-            p={"1em"}
-            pt={"0"}
-            // border={"2px solid gray"}
-            borderRadius={"1em"}
-          >
+          <Box w={"50%"} p={"1em"} pt={"0"} borderRadius={"1em"}>
             <Box>
-              <AddPostForm />
+              <AddTweet />
             </Box>
             <Box>
-              <PostsList />
+              <TweetLists />
               {tweets.toReversed().map((item, index) => {
                 return (
                   <Box
@@ -64,7 +57,6 @@ function Tweet() {
             </Box>
           </Box>
           <Spacer />
-
           <Box w={"20%"}>
             <User />
           </Box>

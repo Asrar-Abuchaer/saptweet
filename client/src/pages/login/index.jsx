@@ -22,7 +22,6 @@ function Login() {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setAccounts(response.data);
-      console.log(`--Fetch Login Success--`);
     } catch (err) {
       throw err;
     }
@@ -56,11 +55,9 @@ function Login() {
     if (allEmail.includes(email)) {
       const inputtedEmail = accounts[allEmail.indexOf(email)]["email"];
       const username = accounts[allEmail.indexOf(email)]["username"];
-      console.log(username);
       if (accounts[allEmail.indexOf(inputtedEmail)]["password"] === password) {
         localStorage.setItem("akun", username);
         navigate("/saptweet");
-        console.log(localStorage);
       }
     } else {
       alert("Username / Password salah ");
@@ -70,7 +67,7 @@ function Login() {
   return (
     <Box>
       <Navbar />
-      <Box p={"0 5em"} pt={"5em"}>
+      <Box p={"1em 5em"} mb={"3em"} mt={"5em"}>
         <Box>
           <form onSubmit={formik.handleSubmit}>
             <Box>
@@ -109,17 +106,19 @@ function Login() {
                 variant={"ghost"}
                 _focus={{ border: "3px solid #192655" }}
               />
-              <Button
-                type="submit"
-                bgColor={"#3876BF"}
-                textColor={"white"}
-                mt={".5em"}
-                p=".5em 1em"
-                _hover={"none"}
-                cursor={"pointer"}
-              >
-                Login
-              </Button>
+              <Center>
+                <Button
+                  type="submit"
+                  bgColor={"#3876BF"}
+                  textColor={"white"}
+                  mt={".5em"}
+                  p=".5em 1em"
+                  _hover={"none"}
+                  cursor={"pointer"}
+                >
+                  Login
+                </Button>
+              </Center>
             </Box>
           </form>
           <Box>

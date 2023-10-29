@@ -12,22 +12,27 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import Navbar from "../navbar";
+import { useNavigate } from "react-router-dom";
 
-const LoginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Invalid email address format")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(7, "password must be 7 characters minimum")
-    .required("email is required"),
-});
 function Register() {
-  const register = async (email, password, username, isLogin) => {
+  const navigate = useNavigate();
+  const LoginSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Invalid email address format")
+      .required("Email is required"),
+    username: Yup.string()
+      .min(4, "username must be 4 characters")
+      .required("Username is required"),
+    password: Yup.string()
+      .min(7, "password must be 7 characters minimum")
+      .required("password is required"),
+  });
+  const register = async (email, username, password) => {
     try {
       await axios.post("http://localhost:3000/users", {
         email,
-        password,
         username,
+        password,
       });
       alert("Success");
     } catch (err) {
@@ -37,24 +42,27 @@ function Register() {
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
       username: "",
+      password: "",
     },
     validationSchema: LoginSchema,
-    onSubmit: (values) => {
-      register(values.email, values.password, values.username);
+    onSubmit: async (values, actions) => {
+      await register(values.email, values.username, values.password);
+      await actions.resetForm();
+      navigate("/login");
     },
   });
 
   return (
     <Box>
       <Navbar />
-      <Box p={"5em"}>
+      <Box p={"1em 5em"} mb={"3em"} mt={"5em"}>
         <form onSubmit={formik.handleSubmit}>
-          <FormLabel>Email </FormLabel>
+          <FormLabel htmlFor="email">Email </FormLabel>
           <FormControl isInvalid={formik.touched.email && formik.errors.email}>
             <InputGroup>
               <Input
+                id="email"
                 size="lg"
                 type="text"
                 name="email"
@@ -68,21 +76,21 @@ function Register() {
                 _focus={{ border: "3px solid #192655" }}
               />
             </InputGroup>
-            {formik.touched.password && formik.errors.password && (
+            {formik.touched.email && formik.errors.email && (
               <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
             )}
           </FormControl>
-          <FormLabel>Username </FormLabel>
+          <FormLabel htmlFor="username">Username </FormLabel>
           <FormControl
-            isInvalid={formik.touched.email && formik.errors.email}
-            nb={5}
+            isInvalid={formik.touched.username && formik.errors.username}
           >
             <InputGroup>
               <Input
+                id="username"
                 size="lg"
                 type="text"
                 name="username"
-                placeholder="Input Your Username"
+                placeholder="Input Your Email"
                 value={formik.values.username}
                 onChange={formik.handleChange}
                 border="2px solid #192655"
@@ -92,10 +100,13 @@ function Register() {
                 _focus={{ border: "3px solid #192655" }}
               />
             </InputGroup>
+            {formik.touched.username && formik.errors.username && (
+              <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
+            )}
           </FormControl>
-          <FormLabel>Password</FormLabel>
+          <FormLabel htmlFor="password">Password</FormLabel>
           <FormControl
-            isInvalid={formik.touched.email && formik.errors.email}
+            isInvalid={formik.touched.password && formik.errors.password}
             nb={5}
           >
             <InputGroup>
@@ -114,17 +125,16 @@ function Register() {
               />
             </InputGroup>
             {formik.touched.password && formik.errors.password && (
-              <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+              <FormErrorMessage>{formik.errors.password}</FormErrorMessage>
             )}
           </FormControl>
-
           <Center>
             <Button
               textColor={"White"}
-              as={"b"}
               bgColor={"#3876BF"}
               type={"submit"}
               mt={"1em"}
+              _hover={"none"}
             >
               REGISTER
             </Button>

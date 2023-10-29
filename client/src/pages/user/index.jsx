@@ -9,9 +9,8 @@ function User() {
     try {
       const response = await axios.get("http://localhost:3000/users");
       setData(response.data);
-      console.log("--Fetch User Success--");
     } catch (err) {
-      console.log(err);
+      throw err;
     }
   };
 

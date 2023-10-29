@@ -26,8 +26,8 @@
     },
     {
       "email": "test@gmail.com",
-      "password": "baikbaik",
       "username": "test",
+      "password": "baikbaik",
       "id": 5
     }
   ]

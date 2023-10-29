@@ -10,7 +10,7 @@ import {
 import axios from "axios";
 import { useFormik } from "formik";
 
-export default function AddPostForm() {
+export default function AddTweet() {
   const date = new Date();
   const tweet = async (username, tweet, time) => {
     try {
@@ -30,8 +30,8 @@ export default function AddPostForm() {
       tweet: "",
       time: "",
     },
-    onSubmit: (values, actions) => {
-      tweet(
+    onSubmit: async (values, actions) => {
+      await tweet(
         (values.username = localStorage["akun"]),
         values.tweet,
         (values.time = `${date.getDate()} / ${
