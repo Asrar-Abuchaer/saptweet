@@ -34,7 +34,7 @@ function User() {
               data.map((item, index) => {
                 return (
                   <Text key={index} color={"white"}>
-                    {localStorage["akun"] === item.email
+                    {localStorage["akun"] === item.username
                       ? ``
                       : `@${item.username}`}
                   </Text>

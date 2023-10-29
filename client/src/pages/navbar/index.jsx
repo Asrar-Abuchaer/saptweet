@@ -2,7 +2,6 @@ import { Box, Flex, HStack, Spacer, Text, Image } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
-
 function Navbar() {
   return (
     <Box
@@ -32,7 +31,14 @@ function Navbar() {
             </Link>
             <Spacer />
             <Link to={"/"}>
-              <Text as={"b"} textColor={"white"}>
+              <Text
+                as={"b"}
+                onClick={() => {
+                  localStorage.removeItem("akun");
+                  console.log(localStorage);
+                }}
+                textColor={"white"}
+              >
                 LOG OUT
               </Text>
             </Link>

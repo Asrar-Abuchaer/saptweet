@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
 import * as Yup from "yup";
 import {
@@ -41,7 +40,7 @@ function Register() {
       password: "",
       username: "",
     },
-    // validationSchema: LoginSchema,
+    validationSchema: LoginSchema,
     onSubmit: (values) => {
       register(values.email, values.password, values.username);
     },
