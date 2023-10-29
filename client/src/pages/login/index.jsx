@@ -41,16 +41,19 @@ function Login() {
     fetchDataLogin();
   }, []);
 
+  const onSubmit = async (values, actions) => {
+    // check(values.email, values.password);
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema: LoginSchema,
-    onSubmit: (values) => {
-      alert(values);
-      check(values.email, values.password);
-    },
+    // validationSchema: LoginSchema,
+    onSubmit,
   });
 
   const check = (email, password) => {
