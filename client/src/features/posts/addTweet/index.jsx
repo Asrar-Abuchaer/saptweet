@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useFormik } from "formik";
-console.log(!!localStorage["akun"]);
 export default function AddTweet() {
   const date = new Date();
   const tweet = async (username, tweet, time) => {
@@ -24,7 +23,6 @@ export default function AddTweet() {
       console.log(err);
     }
   };
-
   const formik = useFormik({
     initialValues: {
       username: "",

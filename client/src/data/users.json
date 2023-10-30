@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "samuelwilliams@gmail.com",
+      "password": "baikbaik",
+      "username": "samuel"
+    },
+    {
+      "email": "putu.phillip@gmail.com",
+      "password": "baikbaik",
+      "username": "putu",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "email": "asrarabuchaer@gmail.com",
+      "password": "baikbaik",
+      "username": "asrar"
+    },
+    {
+      "email": "surya@gmail.com",
+      "password": "baikbaik",
+      "username": "surya",
+      "id": 4
+    },
+    {
+      "email": "test@gmail.com",
+      "username": "test",
+      "password": "baikbaik",
+      "id": 5
+    }
+  ]
+}
