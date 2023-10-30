@@ -71,6 +71,160 @@
       "tweet": "sadasdasd",
       "time": "10/12/2023",
       "id": 12
+<<<<<<< Updated upstream:src/data/tweets.json
+=======
+    },
+    {
+      "username": "putu",
+      "tweet": "test tweet",
+      "time": "29 / 10 / 2023",
+      "id": 13
+    },
+    {
+      "tweet": "asdas",
+      "time": "30 / 10 / 2023",
+      "id": 14
+    },
+    {
+      "username": "samuel",
+      "tweet": "sad",
+      "time": "30 / 10 / 2023",
+      "id": 15
+    },
+    {
+      "tweet": "saasasas",
+      "time": "30 / 10 / 2023",
+      "id": 16
+    },
+    {
+      "tweet": "sasaassa",
+      "time": "30 / 10 / 2023",
+      "id": 17
+    },
+    {
+      "tweet": "asdasd",
+      "time": "30 / 10 / 2023",
+      "id": 18
+    },
+    {
+      "username": "samuel",
+      "tweet": "ss",
+      "time": "30 / 10 / 2023",
+      "id": 19
+    },
+    {
+      "tweet": "opi",
+      "time": "30 / 10 / 2023",
+      "id": 20
+    },
+    {
+      "tweet": "ng",
+      "time": "30 / 10 / 2023",
+      "id": 21
+    },
+    {
+      "tweet": "memek",
+      "time": "30 / 10 / 2023",
+      "id": 22
+    },
+    {
+      "tweet": "a",
+      "time": "30 / 10 / 2023",
+      "id": 23
+    },
+    {
+      "tweet": "a",
+      "time": "30 / 10 / 2023",
+      "id": 24
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 25
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 26
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 27
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 28
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 29
+    },
+    {
+      "tweet": "s",
+      "time": "30 / 10 / 2023",
+      "id": 30
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 31
+    },
+    {
+      "tweet": "mmm",
+      "time": "30 / 10 / 2023",
+      "id": 32
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 33
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 34
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 35
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 36
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 37
+    },
+    {
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 38
+    },
+    {
+      "username": "asrar",
+      "tweet": "asrar",
+      "time": "30 / 10 / 2023",
+      "id": 39
+    },
+    {
+      "username": "asrar",
+      "tweet": "",
+      "time": "30 / 10 / 2023",
+      "id": 40
+    },
+    {
+      "username": "asrar",
+      "tweet": "pengen ",
+      "time": "30 / 10 / 2023",
+      "id": 41
+>>>>>>> Stashed changes:client/src/data/tweets.json
     }
   ]
 }
