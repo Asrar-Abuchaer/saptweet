@@ -2,9 +2,16 @@ import { Text, Box, VStack, Divider } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 function User() {
   const [data, setData] = useState([]);
+  const users = useSelector((state) => state.users);
+  console.log(users);
+  // const renderedUser = users.map((user) => {
+  //   return user.username;
+  // });
 
+  // console.log(renderedUser);
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");

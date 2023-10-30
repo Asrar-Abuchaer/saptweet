@@ -27,18 +27,22 @@ function Register() {
       .min(7, "password must be 7 characters minimum")
       .required("password is required"),
   });
+
   const register = async (email, username, password) => {
     try {
-      await axios.post("http://localhost:3000/users", {
-        email,
+      const { data } = await axios.post("http://localhost:8000/auth/register", {
         username,
+        email,
         password,
       });
-      alert("Success");
+      console.log(data?.message);
+      alert(data?.message);
+      navigate("/login");
     } catch (err) {
       throw err;
     }
   };
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -46,9 +50,9 @@ function Register() {
       password: "",
     },
     validationSchema: LoginSchema,
-    onSubmit: async (values, actions) => {
-      await register(values.email, values.username, values.password);
-      await actions.resetForm();
+    onSubmit: (values, actions) => {
+      register(values.email, values.username, values.password);
+      actions.resetForm();
       navigate("/login");
     },
   });

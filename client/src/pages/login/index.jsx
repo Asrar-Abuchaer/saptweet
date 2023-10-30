@@ -23,7 +23,7 @@ function Login() {
       const response = await axios.get("http://localhost:3000/users");
       setAccounts(response.data);
     } catch (err) {
-      throw err;
+      console.log(err);
     }
   };
 

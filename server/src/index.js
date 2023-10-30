@@ -24,9 +24,9 @@ app.use(
   })
 );
 const authRouter = require("./routes/authRouter");
-// const userRouter = require("./routes/userRouter");
+const userRouter = require("./routes/userRouter");
 
-// app.use("/user", userRouter);
+app.use("/users", userRouter);
 app.use("/auth", authRouter);
 
 app.listen(PORT, (req, res) => {
